@@ -1,14 +1,25 @@
 package com.veronicavilarinho.apidomal.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Contact {
-
+	
+	@Id
+	@JsonIgnore
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotBlank(message = "campo nome é obrigatorio")
 	private String name;
 	
+	@NotBlank(message = "campo nome é obrigatorio")
 	private String email;
 	
 	private String phone;
